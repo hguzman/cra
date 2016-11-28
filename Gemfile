@@ -24,4 +24,4 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
+gem 'rails_12factor', '~> 0.0.3', group: :production
