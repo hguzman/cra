@@ -1,0 +1,2 @@
+module Shipment::GuidesHelper
+end

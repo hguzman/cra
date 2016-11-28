@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: cra_development
+
+
+test:
+  <<: *default
+  database: cra_test
+
+production:
+  <<: *default
+  database: cra_production
+  username: cra
+  password: <%= ENV['CRA_DATABASE_PASSWORD'] %>

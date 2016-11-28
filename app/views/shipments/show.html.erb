@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+        <p>
+          <strong>Fecha envio:</strong>
+          <%= @shipment.fecha_envio_at %>
+        </p>
+
+        <p>
+          <strong>Comentarios:</strong>
+          <%= @shipment.comments %>
+        </p>
+
+        <%= form_for :guides, url: import_shipment_guides_path(@shipment), html: { multipart: true } do |f| %>
+
+          <%= f.file_field :import_file %>
+          <%= f.submit %>
+        <% end %>
+
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Guía</th>      
+              <th>Destinatario</th>
+              <th>Dirección</th>
+              <th>Radicado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @guides.each do |guide| %>
+              <tr>
+                <td><%= guide.guia %></td>
+                <td><%= guide.destinatario %></td>  
+                <td><%= guide.direccion %></td>
+                <td><%= guide.radicado %></td>
+                <td><%= link_to 'Borrar', shipment_guide_path(@shipment, guide), method: :delete, data: {  confirm: '¿Esta usted seguro?', mensaje: 'La guía se borrara definitivamente ' },class: "btn btn-danger btn-xs" %></td>
+                <td>
+                  
+                </td>
+              </tr>    
+            <% end %>
+          </tbody>
+        </table>  
+
+
+
+
+        <%= link_to "Registrar guia", new_shipment_guide_path(@shipment)  %> |
+        <%= link_to 'Editar envio', edit_shipment_path(@shipment) %> |
+        <%= link_to 'Regresar', shipments_path %> |
+
+        <%= link_to "Generar excel", report_shipment_guides_path(@shipment,format: 'xlsx' ) %>
+
+      
+    </div>
+  </div>
+</div>
+

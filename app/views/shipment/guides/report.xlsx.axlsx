@@ -1,0 +1,14 @@
+#encoding: UTF-8
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Envios") do |sheet|
+    titulo=[]
+    titulo << "NOMBRE DESTINATARIO"
+    titulo << "DIRECCION"
+    titulo << "CIUDAD"
+    titulo << "PESO"
+    titulo << "OBSERVACIONES"
+    sheet.add_row titulo
+  @guides.each do |guide|
+    sheet.add_row [guide.destinatario, guide.direccion, guide.ciudad, guide.peso, guide.observaciones]
+  end
+end

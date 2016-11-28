@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  destinatario: MyString
+  direccion: MyString
+  ciudad: MyString
+  peso: MyString
+  observaciones: MyText
+  guia: MyString
+  shipment: one
+
+two:
+  destinatario: MyString
+  direccion: MyString
+  ciudad: MyString
+  peso: MyString
+  observaciones: MyText
+  guia: MyString
+  shipment: two

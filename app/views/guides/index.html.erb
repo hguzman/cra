@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-striped table-hover">
+              <thead>
+                <tr>
+                  <th>Nº Envio</th>
+                  <th>Guía</th>                  
+                  <th>Radicado</th>
+                  <th>Destinatario</th>
+                  <th>Dirección</th>
+                  <th>Ciudad</th>                  
+                </tr>
+              </thead>
+              <tbody>
+                <% @guides.each do |guide| %>
+                  <tr>
+                    <td><%= guide.shipment.id %></td>
+                    <td><%= guide.guia %></td>
+                    <td><%= guide.radicado %></td>
+                    <td><%= guide.destinatario %></td>
+                    <td><%= guide.direccion %></td>
+                    <td><%= guide.ciudad %></td>
+                  </tr>                  
+                <% end %>
+              </tbody>
+            </table>     
+        <% if @guides.empty? %>
+          <h3>Radicado no encontrado</h3>     
+        <% end %>   
+    </div>
+  </div>
+</div>
+

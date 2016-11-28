@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cra</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+
+  <%= stylesheet_link_tag params[:controller] if ::Rails.application.assets.find_asset("#{params[:controller]}.css") %>  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<%= render 'layouts/navbar' %>
+ <div id="wrapper" class="<%= params[:controller] %>.<%= params[:action] %>">
+
+      <% unless flash.empty? %>
+        <script type="text/javascript">
+              toastr.options = {
+                  closeButton: true,
+                  progressBar: true,
+                  showMethod: 'slideDown',
+                  timeOut: 4000,
+                  preventDuplicates: false
+              };
+            <% flash.each do |f| %>
+            <% 
+              type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info')
+            %>
+               toastr['<%= type %>']('<%= f[1] %>');
+            <% end %>
+        </script>
+       <% end %>  
+       
+  <%= yield %>   
+ </div>
+
+</body>
+</html>
