@@ -1,7 +1,9 @@
-<div class="container">
+<div class="container"> 
   <div class="row">
     <div class="col-md-12">
-      <h2>Log in</h2>
+      <div class="well text-center">
+        
+      <h2>Inicio de sesion</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
@@ -20,13 +22,15 @@
             <%= f.label :remember_me %>
           </div>
         <% end -%>
-
+        <br>
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "Entrar", class: "btn btn-success" %>
         </div>
       <% end %>
-
+      <hr>
       <%= render "devise/shared/links" %>
+
+      </div>
       
     </div>
   </div>

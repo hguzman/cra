@@ -1,6 +1,13 @@
-<h1>Editing Shipment</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Editar envio</h1>
 
-<%= render 'form', shipment: @shipment %>
-
-<%= link_to 'Show', @shipment %> |
-<%= link_to 'Back', shipments_path %>
+      <%= render 'form', shipment: @shipment %>
+      <hr>
+      <%= link_to 'Ver', @shipment %> |
+      <%= link_to 'Regresar', shipments_path %>
+      
+    </div>
+  </div>
+</div>
